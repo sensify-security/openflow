@@ -1,7 +1,7 @@
 package ofputil
 
 import (
-	"github.com/netrack/openflow/ofp"
+	"github.com/sensify-security/openflow/ofp"
 )
 
 // ActionsApply returns a list of instructions with a single element used

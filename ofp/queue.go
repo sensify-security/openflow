@@ -6,7 +6,7 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/netrack/openflow/internal/encoding"
+	"github.com/sensify-security/openflow/internal/encoding"
 )
 
 // QueuePropType defines the type of the queue property.

@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/netrack/openflow/internal/encoding"
-	"github.com/netrack/openflow/ofp"
+	"github.com/sensify-security/openflow/internal/encoding"
+	"github.com/sensify-security/openflow/ofp"
 )
 
 func bytesOf(v interface{}) []byte {

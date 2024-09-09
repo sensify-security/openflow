@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/netrack/openflow/internal/encodingtest"
+	"github.com/sensify-security/openflow/internal/encodingtest"
 )
 
 func TestDescription(t *testing.T) {

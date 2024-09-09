@@ -3,7 +3,7 @@ package ofp
 import (
 	"io"
 
-	"github.com/netrack/openflow/internal/encoding"
+	"github.com/sensify-security/openflow/internal/encoding"
 )
 
 // AggregateStatsRequest is a multipart request used to aggregate

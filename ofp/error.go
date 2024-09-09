@@ -5,7 +5,7 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/netrack/openflow/internal/encoding"
+	"github.com/sensify-security/openflow/internal/encoding"
 )
 
 // ErrType indicates high-level type of error.

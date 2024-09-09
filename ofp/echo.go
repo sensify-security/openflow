@@ -4,7 +4,7 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/netrack/openflow/internal/encoding"
+	"github.com/sensify-security/openflow/internal/encoding"
 )
 
 // EchoRequest is a message with arbitrary-length data field.

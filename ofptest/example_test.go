@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 
-	of "github.com/netrack/openflow"
-	"github.com/netrack/openflow/ofp"
+	of "github.com/sensify-security/openflow"
+	"github.com/sensify-security/openflow/ofp"
 )
 
 func ExampleResponseRecorder() {

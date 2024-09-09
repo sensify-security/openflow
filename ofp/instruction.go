@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/netrack/openflow/internal/encoding"
+	"github.com/sensify-security/openflow/internal/encoding"
 )
 
 const (
