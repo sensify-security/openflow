@@ -1,3 +1,5 @@
+// Copyright 2024 Xage Security, Inc. All rights reserved.
+
 package ofp
 
 import (
