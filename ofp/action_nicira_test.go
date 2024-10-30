@@ -33,7 +33,6 @@ func TestActionNxConntrack(t *testing.T) {
 		Zone_src:   0,
 		Zone_range: 0,
 		Recirc_id:  0,
-		Padding:    [3]uint8{},
 		Alg:        0,
 	}
 
@@ -42,7 +41,6 @@ func TestActionNxConntrack(t *testing.T) {
 		Zone_src:   0,
 		Zone_range: 0,
 		Recirc_id:  0,
-		Padding:    [3]uint8{},
 		Alg:        0,
 	}
 	tests := []encodingtest.MU{

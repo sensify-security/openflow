@@ -22,7 +22,7 @@ const (
 // String returns a string representation of the action type.
 func (a ActionNxType) String() string {
 	text, ok := actionNxText[a]
-	// If action is now known just say it.
+	// If action is not known just say it.
 	if !ok {
 		return fmt.Sprintf("Action(%d)", a)
 	}
@@ -125,13 +125,12 @@ type ActionNxConntrack struct {
 	Zone_src   uint32
 	Zone_range uint16
 	Recirc_id  uint8
-	Padding    [3]uint8
 	Alg        uint16
 }
 
 func (a ActionNxConntrack) ReadFrom(r io.Reader) (int64, error) {
 	return encoding.ReadFrom(r, &niciraHeader{}, &a.Flags, &a.Zone_src,
-		&a.Zone_range, &a.Recirc_id, &a.Padding, &a.Alg)
+		&a.Zone_range, &a.Recirc_id, &defaultPad3, &a.Alg)
 }
 
 func (a ActionNxConntrack) WriteTo(w io.Writer) (int64, error) {
@@ -163,7 +162,8 @@ func (a ActionNxConntrack) WriteTo(w io.Writer) (int64, error) {
 	if err != nil {
 		return 0, err
 	}
-	err = binary.Write(buf, binary.BigEndian, a.Padding)
+	// padding is positional, hence cannot be moved around
+	err = binary.Write(buf, binary.BigEndian, pad3{})
 	if err != nil {
 		return 0, err
 	}
