@@ -11,7 +11,7 @@ func TestActionNxConjunction(t *testing.T) {
 	actConj := ActionNxConjunction{
 		Clause:     1,
 		NumClauses: 2,
-		Id:         42,
+		ID:         42,
 	}
 	tests := []encodingtest.MU{
 		{ReadWriter: &actConj, Bytes: []byte{
@@ -29,19 +29,19 @@ func TestActionNxConjunction(t *testing.T) {
 
 func TestActionNxConntrack(t *testing.T) {
 	actCtCommit := ActionNxConntrack{
-		Flags:      uint16(NxCtFlagCommit),
-		Zone_src:   0,
-		Zone_range: 0,
-		Recirc_id:  0,
-		Alg:        0,
+		Flags:     uint16(NxCtFlagCommit),
+		ZoneSrc:   0,
+		ZoneRange: 0,
+		RecircID:  0,
+		Alg:       0,
 	}
 
 	actCtForce := ActionNxConntrack{
-		Flags:      uint16(NxCtFlagForce),
-		Zone_src:   0,
-		Zone_range: 0,
-		Recirc_id:  0,
-		Alg:        0,
+		Flags:     uint16(NxCtFlagForce),
+		ZoneSrc:   0,
+		ZoneRange: 0,
+		RecircID:  0,
+		Alg:       0,
 	}
 	tests := []encodingtest.MU{
 		{ReadWriter: &actCtCommit, Bytes: []byte{
@@ -50,9 +50,9 @@ func TestActionNxConntrack(t *testing.T) {
 			0x00, 0x00, 0x23, 0x20, // Vendor Nicira.
 			0x00, 0x23, // Action type - Conntrack.
 			0x00, 0x01, // Flags.
-			0x00, 0x00, 0x00, 0x00, // Zone_src.
-			0x00, 0x00, // Zone_range.
-			0x00,             // Recirc_id.
+			0x00, 0x00, 0x00, 0x00, // ZoneSrc.
+			0x00, 0x00, // ZoneRange.
+			0x00,             // RecircID.
 			0x00, 0x00, 0x00, // Padding.
 			0x00, 0x00, // Alg.
 		}},
@@ -62,9 +62,9 @@ func TestActionNxConntrack(t *testing.T) {
 			0x00, 0x00, 0x23, 0x20, // Vendor Nicira.
 			0x00, 0x23, // Action type - Conntrack.
 			0x00, 0x02, // Flags.
-			0x00, 0x00, 0x00, 0x00, // Zone_src.
-			0x00, 0x00, // Zone_range.
-			0x00,             // Recirc_id.
+			0x00, 0x00, 0x00, 0x00, // ZoneSrc.
+			0x00, 0x00, // ZoneRange.
+			0x00,             // RecircID.
 			0x00, 0x00, 0x00, // Padding.
 			0x00, 0x00, // Alg.
 		}},

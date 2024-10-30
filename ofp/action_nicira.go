@@ -63,7 +63,7 @@ func (a *niciraHeader) ReadFrom(r io.Reader) (int64, error) {
 type ActionNxConjunction struct {
 	Clause     uint8
 	NumClauses uint8
-	Id         uint32
+	ID         uint32
 }
 
 func (a ActionNxConjunction) Type() ActionType {
@@ -71,14 +71,14 @@ func (a ActionNxConjunction) Type() ActionType {
 }
 
 func (a ActionNxConjunction) ReadFrom(r io.Reader) (int64, error) {
-	return encoding.ReadFrom(r, &niciraHeader{}, &a.Clause, &a.NumClauses, &a.Id)
+	return encoding.ReadFrom(r, &niciraHeader{}, &a.Clause, &a.NumClauses, &a.ID)
 }
 
 func (a ActionNxConjunction) WriteTo(w io.Writer) (int64, error) {
 	buf := &bytes.Buffer{}
 
-	const vendorId = uint32(VENDOR_NICIRA) // nicira extensions
-	err := binary.Write(buf, binary.BigEndian, vendorId)
+	const vendorID = uint32(VENDOR_NICIRA) // nicira extensions
+	err := binary.Write(buf, binary.BigEndian, vendorID)
 	if err != nil {
 		return 0, err
 	}
@@ -96,7 +96,7 @@ func (a ActionNxConjunction) WriteTo(w io.Writer) (int64, error) {
 	if err != nil {
 		return 0, err
 	}
-	err = binary.Write(buf, binary.BigEndian, a.Id)
+	err = binary.Write(buf, binary.BigEndian, a.ID)
 	if err != nil {
 		return 0, err
 	}
@@ -119,18 +119,18 @@ func (a ActionNxConjunction) WriteTo(w io.Writer) (int64, error) {
 	return int64(length), nil
 }
 
-// based on struct nx_action_conntrack in ovs/lib/ofp-actions.c
+// ActionNxConntrack - based on struct nx_action_conntrack in ovs/lib/ofp-actions.c
 type ActionNxConntrack struct {
-	Flags      uint16
-	Zone_src   uint32
-	Zone_range uint16
-	Recirc_id  uint8
-	Alg        uint16
+	Flags     uint16
+	ZoneSrc   uint32
+	ZoneRange uint16
+	RecircID  uint8
+	Alg       uint16
 }
 
 func (a ActionNxConntrack) ReadFrom(r io.Reader) (int64, error) {
-	return encoding.ReadFrom(r, &niciraHeader{}, &a.Flags, &a.Zone_src,
-		&a.Zone_range, &a.Recirc_id, &defaultPad3, &a.Alg)
+	return encoding.ReadFrom(r, &niciraHeader{}, &a.Flags, &a.ZoneSrc,
+		&a.ZoneRange, &a.RecircID, &defaultPad3, &a.Alg)
 }
 
 func (a ActionNxConntrack) WriteTo(w io.Writer) (int64, error) {
@@ -150,15 +150,15 @@ func (a ActionNxConntrack) WriteTo(w io.Writer) (int64, error) {
 	if err != nil {
 		return 0, err
 	}
-	err = binary.Write(buf, binary.BigEndian, a.Zone_src)
+	err = binary.Write(buf, binary.BigEndian, a.ZoneSrc)
 	if err != nil {
 		return 0, err
 	}
-	err = binary.Write(buf, binary.BigEndian, a.Zone_range)
+	err = binary.Write(buf, binary.BigEndian, a.ZoneRange)
 	if err != nil {
 		return 0, err
 	}
-	err = binary.Write(buf, binary.BigEndian, a.Recirc_id)
+	err = binary.Write(buf, binary.BigEndian, a.RecircID)
 	if err != nil {
 		return 0, err
 	}
