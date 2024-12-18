@@ -21,6 +21,6 @@ func MatchNxConjID(id uint32) ofp.XM {
 	return nicira(ofp.NXMTypeConjID, bytesOf(id), nil)
 }
 
-func MatchNxCtState(state uint32) ofp.XM {
-	return nicira(ofp.NXMTypeCtState, bytesOf(state), nil)
+func MatchNxCtState(state, mask uint32) ofp.XM {
+	return nicira(ofp.NXMTypeCtState, bytesOf(state), bytesOf(mask))
 }
